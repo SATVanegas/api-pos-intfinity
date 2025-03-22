@@ -3,6 +3,8 @@ package com.api.intfinity.pos.models;
 
 import jakarta.persistence.*;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "table_")
 public class Table_ {
@@ -15,7 +17,7 @@ public class Table_ {
 
     @ManyToOne
     @JoinColumn(name = "company_id", nullable = false)
-    private Company company;
+    private UUID company;
 
     // Getters y Setters
 
@@ -35,11 +37,11 @@ public class Table_ {
         this.number = number;
     }
 
-    public Company getCompany() {
+    public UUID getCompany() {
         return company;
     }
 
-    public void setCompany(Company company) {
+    public void setCompany(UUID company) {
         this.company = company;
     }
 }
