@@ -1,6 +1,7 @@
 package com.api.intfinity.pos.models;
 import jakarta.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 
 @Entity
@@ -10,13 +11,22 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private UUID companyId;
     private String nombre;
     private String descripcion;
     private Double precio_base;
 
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Variation> variations;
+
+
+    public UUID getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(UUID companyId) {
+        this.companyId = companyId;
+    }
 
     public Long getId() {
         return id;

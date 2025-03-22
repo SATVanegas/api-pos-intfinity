@@ -15,8 +15,6 @@ public class Table_ {
 
     private Integer number;
 
-    @ManyToOne
-    @JoinColumn(name = "company_id", nullable = false)
     private UUID company;
 
     // Getters y Setters
