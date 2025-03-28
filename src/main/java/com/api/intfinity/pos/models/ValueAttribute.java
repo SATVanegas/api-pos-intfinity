@@ -1,11 +1,12 @@
 package com.api.intfinity.pos.models;
 
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "value_attribute")
-public class ValueAttribute {
+public class ValueAttribute extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

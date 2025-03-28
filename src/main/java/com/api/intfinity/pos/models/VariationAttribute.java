@@ -1,10 +1,11 @@
 package com.api.intfinity.pos.models;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "variation_attribute")
-public class VariationAttribute {
+public class VariationAttribute extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
