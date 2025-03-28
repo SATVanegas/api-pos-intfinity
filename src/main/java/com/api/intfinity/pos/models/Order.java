@@ -4,9 +4,10 @@ package com.api.intfinity.pos.models;
 import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
-@Table(name = "order")
+@Table(name = "customer_order")
 public class Order {
 
     @Id
@@ -23,9 +24,7 @@ public class Order {
 
     private Date date;
 
-    @ManyToOne
-    @JoinColumn(name = "created_by")
-    private User createdBy;
+    private UUID createdBy;
 
     private String note;
 
@@ -66,11 +65,11 @@ public class Order {
         this.date = date;
     }
 
-    public User getCreatedBy() {
+    public UUID getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(User createdBy) {
+    public void setCreatedBy(UUID createdBy) {
         this.createdBy = createdBy;
     }
 
