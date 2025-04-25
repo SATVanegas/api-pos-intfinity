@@ -13,7 +13,7 @@ public class VariationAttribute extends PanacheEntityBase {
 
     @ManyToOne
     @JoinColumn(name = "variacion_id", nullable = false)
-    private Variation variacion;
+    private Variation variation;
 
     @ManyToOne
     @JoinColumn(name = "valor_atributo_id", nullable = false)
@@ -29,12 +29,12 @@ public class VariationAttribute extends PanacheEntityBase {
         this.id = id;
     }
 
-    public Variation getVariacion() {
-        return variacion;
+    public Variation getVariation() {
+        return variation;
     }
 
-    public void setVariacion(Variation variacion) {
-        this.variacion = variacion;
+    public void setVariation(Variation variation) {
+        this.variation = variation;
     }
 
     public ValueAttribute getValorAtributo() {

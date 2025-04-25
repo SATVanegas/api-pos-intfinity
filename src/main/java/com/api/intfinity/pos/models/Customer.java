@@ -19,7 +19,6 @@ public class Customer {
     private String lastName;
     private String email;
     private String address;
-
     private UUID company;
 
     // Getters y Setters

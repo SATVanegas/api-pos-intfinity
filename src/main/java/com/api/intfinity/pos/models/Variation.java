@@ -1,8 +1,7 @@
 package com.api.intfinity.pos.models;
+
 import jakarta.persistence.*;
 import java.util.List;
-
-
 
 @Entity
 @Table(name = "variation")
@@ -13,16 +12,15 @@ public class Variation {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "producto_id", nullable = false)
-    private Product producto;
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
 
-    private Double precio;
+    private Double price;
 
-    @OneToMany(mappedBy = "variacion", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<VariationAttribute> variacionAtributes;
+    @OneToMany(mappedBy = "variation", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<VariationAttribute> variationAttributes;
 
     // Getters y Setters
-
     public Long getId() {
         return id;
     }
@@ -31,27 +29,27 @@ public class Variation {
         this.id = id;
     }
 
-    public Product getProducto() {
-        return producto;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProducto(Product producto) {
-        this.producto = producto;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public Double getPrecio() {
-        return precio;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setPrecio(Double precio) {
-        this.precio = precio;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public List<VariationAttribute> getVariacionAtributes() {
-        return variacionAtributes;
+    public List<VariationAttribute> getVariationAttributes() {
+        return variationAttributes;
     }
 
-    public void setVariacionAtributes(List<VariationAttribute> variacionAtributes) {
-        this.variacionAtributes = variacionAtributes;
+    public void setVariationAttributes(List<VariationAttribute> variationAttributes) {
+        this.variationAttributes = variationAttributes;
     }
 }

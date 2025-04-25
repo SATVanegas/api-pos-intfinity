@@ -45,7 +45,7 @@ public class InvoiceController {
     }
 
 
-    //En lugar de delete debemos cambiar
+    //En lugar de delete debemos cambiar a un estado de anulado
     @DELETE
     @Path("/{id}")
     public Response deleteInvoice(@PathParam("id") Long id) {

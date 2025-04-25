@@ -16,7 +16,7 @@ public class ValueAttribute extends PanacheEntityBase {
     @JoinColumn(name = "atributo_id", nullable = false)
     private Attribute atributo;
 
-    private String valor;
+    private String value;
     private Double precio_adicional;
 
     // Getters y Setters
@@ -37,12 +37,12 @@ public class ValueAttribute extends PanacheEntityBase {
         this.atributo = atributo;
     }
 
-    public String getValor() {
-        return valor;
+    public String getValue() {
+        return value;
     }
 
-    public void setValor(String valor) {
-        this.valor = valor;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     public Double getPrecio_adicional() {
