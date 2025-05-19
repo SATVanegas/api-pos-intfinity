@@ -1,7 +1,7 @@
 package com.api.intfinity.pos.controllers;
 
 
-import com.api.intfinity.pos.models.*;
+import com.api.intfinity.pos.dtos.*;
 import com.api.intfinity.pos.services.ProductService;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -21,19 +21,19 @@ public class ProductController {
     // ====================== CRUD BÁSICO DE PRODUCTOS ======================
     @POST
     @Transactional
-    public Response createProduct(Product product) {
+    public Response createProduct(ProductDTO product) {
         return Response.ok(productService.createProduct(product)).status(201).build();
     }
 
     @GET
-    public List<Product> getAllProducts() {
+    public List<ProductDTO> getAllProducts() {
         return productService.getAllProductsWithVariations();
     }
 
     @GET
     @Path("/{id}")
     public Response getProductWithDetails(@PathParam("id") Long id) {
-        Product product = productService.getProductWithVariations(id);
+        ProductDTO product = productService.getProductWithVariations(id);
         return product != null ? Response.ok(product).build() : Response.status(404).build();
     }
 
@@ -41,14 +41,14 @@ public class ProductController {
     @POST
     @Path("/{productId}/variations")
     @Transactional
-    public Response addVariation(@PathParam("productId") Long productId, Variation variation) {
-        Variation created = productService.addVariation(productId, variation);
+    public Response addVariation(@PathParam("productId") Long productId, VariationDTO variation) {
+        VariationDTO created = productService.addVariation(productId, variation);
         return Response.ok(created).status(201).build();
     }
 
     @GET
     @Path("/{productId}/variations")
-    public List<Variation> getVariations(@PathParam("productId") Long productId) {
+    public List<VariationDTO> getVariations(@PathParam("productId") Long productId) {
         return productService.getVariationsByProduct(productId);
     }
 
@@ -56,15 +56,15 @@ public class ProductController {
     @POST
     @Path("/attributes")
     @Transactional
-    public Response createAttribute(Attribute attribute) {
+    public Response createAttribute(AttributeDTO attribute) {
         return Response.ok(productService.createAttribute(attribute)).status(201).build();
     }
 
     @POST
     @Path("/attributes/{attributeId}/values")
     @Transactional
-    public Response addAttributeValue(@PathParam("attributeId") Long attributeId, ValueAttribute value) {
-        ValueAttribute created = productService.addAttributeValue(attributeId, value);
+    public Response addAttributeValue(@PathParam("attributeId") Long attributeId, ValueAttributeDTO value) {
+        ValueAttributeDTO created = productService.addAttributeValue(attributeId, value);
         return Response.ok(created).status(201).build();
     }
 
@@ -76,7 +76,7 @@ public class ProductController {
             @PathParam("variationId") Long variationId,
             @QueryParam("valueId") Long valueId
     ) {
-        VariationAttribute assignment = productService.assignAttribute(variationId, valueId);
+        VariationAttributeDTO assignment = productService.assignAttribute(variationId, valueId);
         return Response.ok(assignment).status(201).build();
     }
 }
